@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\SupplierController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,13 +17,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [HomeController::class, 'index'])->name('home.index');
-Route::get('/products', [ProductController::class, 'index'])->name('product.index');
+
+Route::get('/all-products', [ProductController::class, 'index'])->name('product.index');
 Route::get('/product/{slug}', [ProductController::class, 'show'])->name('product.show');
 
-Route::get('/test', function () {
-  $products = \App\Models\Product::with('supplier')->get();
-  foreach ($products as $key => $value) {
-    echo $value->supplier->name;
-  }
-  // return $products->supplier->name;
-});
+Route::get('/all-suppliers', [SupplierController::class, 'index'])->name('supplier.index');
+Route::get('/supplier/{id}', [SupplierController::class, 'show'])->name('supplier.show');

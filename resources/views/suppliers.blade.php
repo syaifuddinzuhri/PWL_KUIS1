@@ -11,7 +11,7 @@
                 <div class="row">
                     <div class="col-lg-6">
                         <div class="text-content">
-                            <h4>ALL PRODUCTS</h4>
+                            <h4>ALL SUPPLIERS</h4>
                             <h2>PEMROGRAMAN WEB LANJUT</h2>
                         </div>
                     </div>
@@ -28,27 +28,23 @@
                 <div class="col-12">
                     <div class="all-blog-posts">
                         <div class="row">
-                            @foreach ($products as $product)
+                            @foreach ($suppliers as $supplier)
                                 <div class="col-lg-4">
                                     <div class="blog-post">
-                                        <div class="blog-thumb">
-                                            <img src="{{ $product->image }}" alt="">
-                                        </div>
                                         <div class="down-content">
-                                            <a href="{{ route('product.show', $product->slug) }}">
-                                                <h4>{{ $product->name }}</h4>
+                                            <a href="{{ route('supplier.show', $supplier->id) }}">
+                                                <h4>{{ $supplier->name }}</h4>
                                             </a>
                                             <ul class="post-info">
-                                                <li><a href="#">{{ $product->supplier->name }}</a></li>
-                                                <li><a href="#">{{ $product->created_at->format('d M Y') }}</a></li>
+                                                <li><a href="#">{{ $supplier->address }}</a></li>
                                             </ul>
-                                            <p>{{ Str::limit($product->description, 50, '...') }}</p>
+                                            <p>{{ $supplier->email }}</p>
                                             <div class="post-options">
                                                 <div class="row">
                                                     <div class="col-12">
                                                         <div class="main-button">
-                                                            <a href="{{ route('product.show', $product->slug) }}">Lihat
-                                                                Detail Product</a>
+                                                            <a href="{{ route('supplier.show', $supplier->id) }}">Lihat
+                                                                Detail</a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -59,7 +55,7 @@
                             @endforeach
 
                             <div class="col-12">
-                                {{ $products->links('paginate') }}
+                                {{ $suppliers->links('paginate') }}
                             </div>
                         </div>
                     </div>

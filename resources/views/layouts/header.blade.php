@@ -23,10 +23,10 @@
                             <a class="nav-link" href="{{ route('product.index') }}">Products</a>
                         </li>
                         <li class="nav-item {{ $session_active === 3 ? 'active' : '' }}">
-                            <a class="nav-link" href="blog.html">Suppliers</a>
+                            <a class="nav-link" href="{{ route('supplier.index') }}">Suppliers</a>
                         </li>
                         <li class="nav-item {{ $session_active === 4 ? 'active' : '' }}">
-                            <a class="nav-link" href="blog.html">Employess</a>
+                            <a class="nav-link" href="blog.html">Employees</a>
                         </li>
                         <li class="nav-item {{ $session_active === 5 ? 'active' : '' }}">
                             <a class="nav-link" href="blog.html">Customers</a>

@@ -11,21 +11,24 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto">
-                        <li class="nav-item active">
+                        @php
+                            $session_active = Session::get('active');
+                        @endphp
+                        <li class="nav-item {{ $session_active === 1 ? 'active' : '' }}">
                             <a class="nav-link" href="{{ route('home.index') }}">Home
                                 <span class="sr-only">(current)</span>
                             </a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item {{ $session_active === 2 ? 'active' : '' }}">
                             <a class="nav-link" href="{{ route('product.index') }}">Products</a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item {{ $session_active === 3 ? 'active' : '' }}">
                             <a class="nav-link" href="blog.html">Suppliers</a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item {{ $session_active === 4 ? 'active' : '' }}">
                             <a class="nav-link" href="blog.html">Employess</a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item {{ $session_active === 5 ? 'active' : '' }}">
                             <a class="nav-link" href="blog.html">Customers</a>
                         </li>
 

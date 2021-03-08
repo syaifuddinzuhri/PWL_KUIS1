@@ -10,7 +10,7 @@ class ProductController extends Controller
 
     public function index()
     {
-        $products = Product::with('supplier')->get();
+        $products = Product::with('supplier')->paginate(9);
         $title = 'Products';
 
         session()->put('active', 2);
@@ -19,9 +19,9 @@ class ProductController extends Controller
 
     public function show($slug)
     {
-        $products = Product::with('supplier')->where('slug', '=', $slug)->get();
-        $title = 'Products';
+        $product = Product::with('supplier')->where('slug', '=', $slug)->firstOrFail();
+        $title = $product->name;
         session()->put('active', 2);
-        return view('product', compact('title', 'products'));
+        return view('detail_product', compact('title', 'product'));
     }
 }

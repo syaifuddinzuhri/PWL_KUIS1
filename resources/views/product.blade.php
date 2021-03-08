@@ -11,7 +11,7 @@
                 <div class="row">
                     <div class="col-lg-6">
                         <div class="text-content">
-                            <h4>PRODUCTS</h4>
+                            <h4>ALL PRODUCTS</h4>
                             <h2>PEMROGRAMAN WEB LANJUT</h2>
                         </div>
                     </div>
@@ -32,7 +32,7 @@
                                 <div class="col-lg-4">
                                     <div class="blog-post">
                                         <div class="blog-thumb">
-                                            <img src="{{ asset('template') }}/assets/images/blog-post-01.jpg" alt="">
+                                            <img src="{{ $product->image }}" alt="">
                                         </div>
                                         <div class="down-content">
                                             <a href="{{ route('product.show', $product->slug) }}">
@@ -40,9 +40,9 @@
                                             </a>
                                             <ul class="post-info">
                                                 <li><a href="#">{{ $product->supplier->name }}</a></li>
-                                                <li><a href="#">May 31, 2020</a></li>
+                                                <li><a href="#">{{ $product->created_at->format('d M Y') }}</a></li>
                                             </ul>
-                                            <p>Stand Blog is a free HTML CSS template for your CMS theme.</p>
+                                            <p>{{ Str::limit($product->description, 50, '...') }}</p>
                                             <div class="post-options">
                                                 <div class="row">
                                                     <div class="col-12">
@@ -57,11 +57,9 @@
                                 </div>
                             @endforeach
 
-                            {{-- <div class="col-lg-6">
-                                <div class="main-button">
-                                    <a href="blog.html">View All Posts</a>
-                                </div>
-                            </div> --}}
+                            <div class="col-12">
+                                {{ $products->links('paginate') }}
+                            </div>
                         </div>
                     </div>
                 </div>

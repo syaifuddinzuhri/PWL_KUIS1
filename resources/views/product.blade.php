@@ -35,11 +35,11 @@
                                             <img src="{{ asset('template') }}/assets/images/blog-post-01.jpg" alt="">
                                         </div>
                                         <div class="down-content">
-                                            <a href="post-details.html">
+                                            <a href="{{ route('product.show', $product->slug) }}">
                                                 <h4>{{ $product->name }}</h4>
                                             </a>
                                             <ul class="post-info">
-                                                <li><a href="#">Admin</a></li>
+                                                <li><a href="#">{{ $product->supplier->name }}</a></li>
                                                 <li><a href="#">May 31, 2020</a></li>
                                             </ul>
                                             <p>Stand Blog is a free HTML CSS template for your CMS theme.</p>

@@ -8,12 +8,20 @@ use Illuminate\Http\Request;
 class ProductController extends Controller
 {
 
-
     public function index()
     {
-        session()->put('active', 2);
+        $products = Product::with('supplier')->get();
         $title = 'Products';
-        $products = Product::with('suppliers')->get();
+
+        session()->put('active', 2);
+        return view('product', compact('title', 'products'));
+    }
+
+    public function show($slug)
+    {
+        $products = Product::with('supplier')->where('slug', '=', $slug)->get();
+        $title = 'Products';
+        session()->put('active', 2);
         return view('product', compact('title', 'products'));
     }
 }

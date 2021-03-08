@@ -11,7 +11,7 @@ class Product extends Model
 
     protected $table = 'products';
 
-    public function suppliers()
+    public function supplier()
     {
         return $this->belongsTo(Supplier::class);
     }

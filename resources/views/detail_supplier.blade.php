@@ -24,7 +24,6 @@
     <section class="contact-us">
         <div class="container">
             <div class="row">
-
                 <div class="col-lg-12">
                     <div class="down-contact">
                         <div class="row">
@@ -76,6 +75,40 @@
                                     </div>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="blog-posts">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="all-blog-posts">
+                        <div class="row">
+                            @foreach ($supplier->product as $product)
+                                <div class="col-lg-4">
+                                    <div class="blog-post">
+                                        <div class="blog-thumb">
+                                            <img src="{{ $product->image }}" alt="">
+                                        </div>
+                                        <div class="down-content">
+                                            <a href="{{ route('product.show', $product->slug) }}">
+                                                <h4>{{ $product->name }}</h4>
+                                            </a>
+                                            <ul class="post-info">
+                                                <li>
+                                                    <a href="{{ route('supplier.show', $product->supplier->id) }}">{{ $product->supplier->name }}
+                                                    </a>
+                                                </li>
+                                                <li><a href="!#">{{ $product->created_at->format('d M Y') }}</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endforeach
                         </div>
                     </div>
                 </div>

@@ -20,7 +20,6 @@ class SupplierController extends Controller
     {
         $supplier = Supplier::with('product')->where('id', '=', $id)->firstOrFail();
         $title = $supplier->name;
-
         session()->put('active', 3);
         return view('detail_supplier', compact('title', 'supplier'));
     }

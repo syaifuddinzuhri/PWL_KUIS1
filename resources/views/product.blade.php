@@ -39,7 +39,10 @@
                                                 <h4>{{ $product->name }}</h4>
                                             </a>
                                             <ul class="post-info">
-                                                <li><a href="#">{{ $product->supplier->name }}</a></li>
+                                                <li>
+                                                    <a href="{{ route('supplier.show', $product->supplier->id) }}">{{ $product->supplier->name }}
+                                                    </a>
+                                                </li>
                                                 <li><a href="#">{{ $product->created_at->format('d M Y') }}</a></li>
                                             </ul>
                                             <p>{{ Str::limit($product->description, 50, '...') }}</p>

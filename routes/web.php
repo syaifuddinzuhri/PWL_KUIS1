@@ -23,3 +23,17 @@ Route::get('/product/{slug}', [ProductController::class, 'show'])->name('product
 
 Route::get('/all-suppliers', [SupplierController::class, 'index'])->name('supplier.index');
 Route::get('/supplier/{id}', [SupplierController::class, 'show'])->name('supplier.show');
+
+Route::get('/all-employees', function () {
+  return view('employee');
+})->name('employee.index');
+Route::get('/employee/{id}', function () {
+  return view('detail_employee');
+})->name('employee.show');
+
+Route::get('/all-customers', function () {
+  return view('customer');
+})->name('customer.index');
+Route::get('/customer/{id}', function () {
+  return view('detail_customer');
+})->name('customer.show');

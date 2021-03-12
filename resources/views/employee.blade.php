@@ -32,7 +32,7 @@
                                 <div class="col-lg-4">
                                     <div class="blog-post">
                                         <div class="down-content">
-                                            <a href="{{ route('customer.show', $val->id) }}">
+                                            <a href="{{ route('employee.show', $val->id) }}">
                                                 <h4>{{ $val->name }}</h4>
                                             </a>
                                             <ul class="post-info">
@@ -43,7 +43,7 @@
                                                 <div class="row">
                                                     <div class="col-12">
                                                         <div class="main-button">
-                                                            <a href="{{ route('customer.show', $val->id) }}">Lihat
+                                                            <a href="{{ route('employee.show', $val->id) }}">Lihat
                                                                 Detail</a>
                                                         </div>
                                                     </div>

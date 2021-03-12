@@ -17,6 +17,7 @@ class EmployeeController extends Controller
         $employee = Employee::paginate(9);
         $title = 'Employees';
 
+        session()->put('active', 4);
         return view('employee', compact('title', 'employee'));
     }
 
@@ -51,6 +52,7 @@ class EmployeeController extends Controller
     {
         $employee = Employee::where('id', '=', $id)->firstOrFail();
         $title = $employee->name;
+        session()->put('active', 4);
         return view('detail_employee', compact('title', 'employee'));
     }
 

@@ -17,6 +17,7 @@ class CustomerController extends Controller
         $customer = Customer::paginate(9);
         $title = 'Customers';
 
+        session()->put('active', 5);
         return view('customer', compact('title', 'customer'));
     }
 
@@ -51,6 +52,8 @@ class CustomerController extends Controller
     {
         $customer = Customer::where('id', '=', $id)->firstOrFail();
         $title = $customer->name;
+
+        session()->put('active', 5);
         return view('detail_customer', compact('title', 'customer'));
     }
 

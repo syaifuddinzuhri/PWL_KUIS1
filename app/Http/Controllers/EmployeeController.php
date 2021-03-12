@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Employee;
 use Illuminate\Http\Request;
 
 class EmployeeController extends Controller
@@ -13,7 +14,10 @@ class EmployeeController extends Controller
      */
     public function index()
     {
-        //
+        $employee = Employee::paginate(9);
+        $title = 'Employees';
+
+        return view('employee', compact('title', 'employee'));
     }
 
     /**
@@ -45,7 +49,9 @@ class EmployeeController extends Controller
      */
     public function show($id)
     {
-        //
+        $employee = Employee::where('id', '=', $id)->firstOrFail();
+        $title = $employee->name;
+        return view('detail_employee', compact('title', 'employee'));
     }
 
     /**

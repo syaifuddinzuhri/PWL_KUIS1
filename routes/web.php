@@ -3,6 +3,8 @@
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SupplierController;
+use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\EmployeeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,16 +26,5 @@ Route::get('/product/{slug}', [ProductController::class, 'show'])->name('product
 Route::get('/all-suppliers', [SupplierController::class, 'index'])->name('supplier.index');
 Route::get('/supplier/{id}', [SupplierController::class, 'show'])->name('supplier.show');
 
-Route::get('/all-employees', function () {
-  return view('employee');
-})->name('employee.index');
-Route::get('/employee/{id}', function () {
-  return view('detail_employee');
-})->name('employee.show');
-
-Route::get('/all-customers', function () {
-  return view('customer');
-})->name('customer.index');
-Route::get('/customer/{id}', function () {
-  return view('detail_customer');
-})->name('customer.show');
+Route::resource('customer', CustomerController::class);
+Route::resource('employee', EmployeeController::class);

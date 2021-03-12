@@ -15,15 +15,14 @@ class CreateProductsTable extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('supplier_id');
             $table->string('name')->unique();
             $table->string('slug')->unique();
             $table->integer('price')->nullable();
             $table->integer('stock');
             $table->text('description')->nullable();
             $table->string('image');
-            $table->bigInteger('supplier_id')->unsigned()->nullable();
             $table->timestamps();
-            $table->foreign('supplier_id')->references('id')->on('suppliers')->onDelete('set null');
         });
     }
 
